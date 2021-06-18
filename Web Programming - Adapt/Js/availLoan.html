@@ -1,0 +1,55 @@
+<!Doctype HTML>
+<html>
+    <head>
+        <script>
+        function disp()
+        {
+            var name=document.getElementById("cn").value;
+            var loanAmount=document.getElementById("la").value;
+            document.getElementById("result").innerHTML="Thank you "+name+". Your Loan Amount is "+loanAmount;
+            return false;
+            
+        }
+        </script>
+        <style>
+        body{
+            background-color: #FFAACC;
+        }
+        h1{
+            color:#770080;
+            font-family: cursive;
+            text-align: center;
+        }
+        #result
+        {
+            color: #770080;
+            font-weight: bold;
+        }
+        </style>
+        </head>
+        <body>
+            <center>
+            <h1>DAC BANK - AVAIL LOAN</h1>
+            <form autocomplete="on" onsubmit="return disp()">
+            Customer Name<input type="text" name="customerName" id="cn" required/><br/>
+            Address<textarea name="customerAddress" rows="5" cols="20" required></textarea><br/>
+            Gender<input type="radio" name="gender" value="Male">Male
+            <input type="radio" name="gender" value="Female"/>Female<br/>
+            Email ID<input type="email" name="customerEmail" required/><br/>
+            Mobile Number<input type="text" name="customerMobileNumber" pattern="^[789]\d{9}$" required/><br/>
+            Date of Birth<input type="date" name="dob" required/><br/>
+            Loan Type<input list="loan" name="loanType">
+            <datalist id="loan" autocomplete="on">
+                <option value="Vehicle"></option>
+                <option value="Home"></option>
+                <option value="Education"></option>
+                </datalist><br/>
+                Loan Amount<input type="text" name="loanAmount" id="la" placeholder="Enter the Amount" required/><br/>
+                Tenure<input type="number" name="loanTenure" min="1" max="5"><br/>
+                <input type="submit" name="submit" value="Avail Loan" onclick="disp()"/>
+                <input type="reset" name="Reset" value="Reset" />
+                </form>
+                <div id="result"></div>
+                </center>
+            </body>
+            </html>

@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <style>
+        body{
+            background-color: #99FFFF;
+        }
+        h1{
+            text-align: center;
+            font-weight: bold;
+            font-style: italic;
+            color: #b03060;
+        }
+        table{
+            text align:left;
+            border-style: solid;
+            border-width: 5px;
+            border-collapse: collapse;
+            padding: 10px;
+            width: 30px;
+        }
+        td{
+            text-align:left;
+            border-style: solid;
+            border-width: 2.5px;
+            padding:10px;
+        }
+        #discount{
+            text-align:center;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        #result{
+            text-align: center;
+            font-weight: bold;
+            font-style: italic;
+            color: #FF0000;
+            font-size: 40px;
+        }
+        form{
+            margin:0 auto;
+            width:300px;
+        }
+        #bt{
+            margin-left:45%;
+        }
+        </style>
+        <script>
+        function calculateDiscount()
+        {
+        var name=document.getElementById("productName").value;
+        var season=document.getElementById("season").value;
+        var price=document.getElementById("productPrice").value;
+        var pattern="[0-9!@#$%^&*_]+";
+        var result=name.match(pattern);
+        if(result!=null)
+        {
+            alert("Only alphabets and blank spaces are allowed for name");
+        }
+        else if(name=="" && price=="")
+        {
+            alert("Fields cannot be empty");
+        }
+        else if(name=="")
+        {
+            alert("Name cannot be empty");
+        }
+        else if(price=="")
+        {
+            alert("Price cannot be empty");
+        }
+        else{
+            if(price>15000)
+            {
+                if(season=="summer")
+                {
+                    var result=price*0.90;
+                    document.getElementById("discount").innerHTML="The discount is 10%";
+                  document.getElementById("result").innerHTML="The discounted price : Rs "+result;
+            }
+            else if(season=="newyear")
+            {
+                var result=price*0.95;
+            document.getElementById("discount").innerHTML="The discount is 5%";
+            document.getElementById("result").innerHTML="The discounted price : Rs "+result;
+                }
+            else{
+                var result=price*0.85;
+                document.getElementById("discount").innerHTML="The discount is 15%";
+                document.getElementById("result").innerHTML="The discounted price : Rs "+result;
+            }
+        }
+        else
+            alert("Please enter a price greater than 15000");
+                }
+                return false;
+        }
+        </script>
+        </head>
+        <body>
+            <center>
+            <h1><b>DISCOUNT PRICE</b></h1>
+            <form onsubmit="return calculateDiscount()">
+            <table >
+                <tr>
+                    <td>Product Name</td>
+                    <td><input type="text" name="name" id="productName" pattern="[a-zA-Z ]+" required="required" />
+                    </tr>
+                    <tr>
+                        <td>Product Price</td>
+                        <td><input type="number" name="price" id="productPrice" min="15001" required="required"></td>
+                        </tr>
+                    <tr>
+                        <td>Season</td>
+                        <td><select id="season" name="season">
+                            <option value="summer">SUMMER SALE</option>
+                            <option value="newyear">NEW YEAR SALE</option>
+                            <option value="clearance">CLEARANCE SALE</option>
+                            </select></td>    
+                </table>
+                <br><input type="submit" value="GET DISCOUNT PRICE" name="submit" id="bt"><br>
+                </form>
+                <div id="discount"><br></div>
+                <div id="result"><br></div>
+                </center>
+            </body>
+    </html>

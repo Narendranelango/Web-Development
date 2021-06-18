@@ -1,0 +1,26 @@
+.BlogCard{
+    margin: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px black;
+    background-color: chartreuse;
+   }
+   .App{
+       text-align: center;
+   }
+
+   @media (min-width : 992px){
+       .NewBlogCard{
+            width: 40%;
+            display: inline-block;
+            margin: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px black;
+    background-color: chartreuse;
+       }
+           
+       
+   }

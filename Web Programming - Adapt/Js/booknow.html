@@ -1,0 +1,116 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<style type="text/css">
+body{
+background-color: #FFAACC;
+}
+
+h1
+{
+color: #770080;
+font-family:Courier New;
+font-style :italic;
+text-align:center;
+}
+form
+{
+margin :0 auto;
+width:300px;
+}
+#result
+{
+color :#770080;
+font-weight:bold;
+}
+</style>
+<title>DREAM Theme Park</title>
+</head>
+<body >
+<script>
+function calculateCharges()
+{
+var customerName=document.getElementById("customerName").value;
+var bookingType=document.getElementById("bookType").value;
+var adult=document.getElementById("adults").value;
+var children=document.getElementById("children").value;
+var ticketCost=0;
+var discount=0;
+var result = 0;
+ticketCost=(adult*1500)+(children*1200);
+if(bookingType=="Normal")
+{
+    result=ticketCost;
+}
+else if(bookingType=="School")
+{
+    result=ticketCost*0.50;
+}
+else
+{
+    result=ticketCost*0.75;
+}
+document.getElementById("result").innerHTML = "Thank you "+customerName+". Total cost to be paid is "+result;
+return false;
+}
+</script>
+<h1>Book Your Tickets</h1>
+<form onsubmit="return calculateCharges()" >
+<table>
+<tr>
+<td>Customer Name</td>
+<td><input type="text" name="customerName" id="customerName" required="required" pattern="[a-zA-z ]+" placeholder="Enter your name" /> </td>
+</tr>
+<tr>
+<td>Address</td>
+<td><textarea name="address" id="address" required="required"  rows="5" cols="20" > </textarea>
+</td>
+</tr>
+<tr>
+<td>Email ID</td>
+<td><input  type="email" name="customerEmail"  id="customerEmail" required="required"> </td>
+</tr>
+<tr>
+<td>Mobile Number</td>
+<td><input type="text" name="customerMobileNumber" id="customerMobileNumber" pattern="[7-9]{1}[0-9]{9}"   required="required"> </td>
+</tr>
+<tr>
+<td>Park Location</td>
+<td><input type="radio"  name="location" id="location" value="Delhi" required="required">Delhi
+<input type="radio"  name="location" id="location" value="Mumbai" required="required">Mumbai
+</td>
+</tr>
+<tr>
+<td>Date of Visit</td>
+<td><input type="date" name="dateofvisit" id="dateofvisit" required="required"> </td>
+</tr>
+<tr>
+<td>Booking Type</td>
+<td><input name="bookingType" id="bookingType" list="bookType">
+		<datalist id="bookType">
+  		<option value="Normal">
+		<option value="School">
+		<option value="Corporate">
+		</datalist></td>
+</tr>
+<tr>
+<td>Adult</td>
+<td><input type="number" name="adults" id="adults"  min="0" max="500"  required="required"> </td>
+</tr>
+<tr>
+<td>Children</td>
+<td><input type="number"  name="children" id="children" required="required"> </td>
+</tr>
+<tr>
+<td><input type="submit" value="Book Now" name="submit"> </td>
+<td><input type="reset" value="Clear" > </td>
+</tr>
+<tr>
+<td colspan="2">
+<div id="result"></div>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

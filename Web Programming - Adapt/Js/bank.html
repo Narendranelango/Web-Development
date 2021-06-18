@@ -1,0 +1,181 @@
+<html>
+    <head>
+        <script>
+        function calculateInterest()
+        {
+            var tenure=document.getElementById("tenureval").value;
+            var citizen=document.getElementsByName("customerType");
+            var depositType=document.getElementById("savingType").value;
+            var amount=document.getElementById("amount").value;
+            amount=parseInt(amount);
+            var citizenType;
+            for(var i=0;i<citizen.length;i++)
+            {
+                if(citizen[i].checked)
+                {
+                    citizenType=citizen[i].value;
+                    break;
+                }
+            }
+            if(depositType=="FD")
+            {
+                if(citizenType=="Normal Citizen")
+                {
+                    if(tenure>=1 && tenure<=2)
+                    {
+                        var result=(amount*tenure*7)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                    }
+                    else if(tenure>2 && tenure<=4)
+                    {
+                        var result=(amount*tenure*7.5)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                        
+                    }
+                    else{
+                        var result=(amount*tenure*8)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                    }
+                }
+                else{
+                    if(tenure>=1 && tenure<=2)
+                    {
+                        var result=(amount*tenure*7.5)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                        
+                    }
+                    else if(tenure>2 && tenure<=4)
+                    {
+                        var result=(amount*tenure*8)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                    }
+                    else{
+                        var result=(amount*tenure*8.5)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                    }
+                }
+            }
+            else{
+                if(citizenType=="Normal Citizen")
+                {
+                    if(tenure>=1 && tenure<=2)
+                    {
+                        var result=(amount*tenure*6.5)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                    }
+                    else if(tenure>2 && tenure<=4)
+                    {
+                        var result=(amount*tenure*6)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                    }
+                    else{
+                        var result=(amount*tenure*5.5)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                    }
+                }
+                else{
+                    if(tenure>=1 && tenure<=2)
+                    {
+                        var result=(amount*tenure*7)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                    }
+                    else if(tenure>2 && tenure<=4)
+                    {
+                        var result=(amount*tenure*6.5)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                    }
+                    else{
+                        var result=(amount*tenure*6)/100+amount;
+                        document.getElementById("result").innerHTML="Total Savings done "+result;
+                    }
+                }
+            }
+            return false;
+        }
+        function update(val)
+        {
+            document.getElementById("show").innerHTML=val;
+        }
+        </script>
+        <style>
+        h1{
+            text-align: center;
+            font-family: cursive;
+            color:#800080;
+        }
+        body{
+            background-color: #F0E68C;
+        }
+        #ratetable
+        {
+            float:right;
+            border-style: solid;
+        }
+        </style>
+        </head>
+        <body>
+            <center>
+            <h1>PIGGY BANK SAVINGS CALCULATOR</h1>
+            <form onsubmit="return calculateInterest()">
+                Customer Name<input type="text" name="customerName" required="required" pattern="[a-zA-Z ]+"><br/>
+                Customer Type<input type="radio" name="customerType" value="Normal Citizen" required="required">Normal Citizen
+                <input type="radio" name="customerType" value="Senior Citizen" required="required">Senior Citizen<br/>
+                Address & ID Proof
+                <input type="checkbox" name="addressProof" value="Aadhar Card">Aadhar Card
+                <input type="checkbox" name="addressProof" value="Pan Card">Pan Card
+                <input type="checkbox" name="addressProof" value="Driving License">Driving License
+                <input type="checkbox" name="addressProof" value="Passport">Passport
+                <input type="checkbox" name="addressProof" value="Voter Id">Voter Id<br/>
+                    Mobile <input type="text" name="customerMobileNumber" required="required" pattern="[7-9]{1}[0-9]{9}" /><br/>
+                    Type of SAVINGS
+                    <input id="savingType" list="savings" name="savingType"><br/>
+                    <datalist id="savings" autocomplete="on" required="required">
+                        <option value="FD"></option>
+                        <option value="RD"></option>
+                        </datalist>
+                        Amount
+                        <input type="number" id="amount" name="amount" placeholder="Enter the Amount" min="500" required="required"><br/>
+                        Tenure
+                        <input type="range" id="tenureval" name="tenure" min="1" max="5" value="1" step="1" onchange="update(this.value);" required="required">
+                        <p id="show"></p>
+                        <input type="submit" name="submit" value="Calculate Savings">
+                        <input type="reset" name="Reset" value="Reset">
+                        <div id="result"></div>
+                        </form>
+                        <table id="ratetable">
+                            <tr>
+                                <th>Deposit Type</th>
+                                <th>Tenure</th>
+                                <th>Interest Rate</th>
+                                </tr>
+                            <tr>
+                                <td rowspan="3">FD</td>
+                                <td>1-2 years</td>
+                                <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td>Above 2 years to 4 years</td>
+                                    <td>7.5</td>
+                                    </tr>
+                                <tr>
+                                    <td>Above 4 years to 5 years</td>
+                                    <td>8</td>
+                                    </tr>
+                                <tr>
+                                    <td rowspan="3">RD</td>
+                                    <td>1 to 2 years</td>
+                                    <td>6.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Above 2 years to 4 years</td>
+                                        <td>6</td>
+                                        </tr>
+                                    <tr>
+                                        <td>Above 4 years to 5 years</td>
+                                        <td>5.5</td>
+                                        </tr>
+                                        
+                </table>
+                </center>
+            </body>
+            </html>

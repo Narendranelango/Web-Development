@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script>
+        function calculateFeedback()
+        {
+        var p=document.getElementById("participantName").value;
+        var t=document.getElementById("trainerName").value;
+        var f=document.getElementById("trainerFeedback").value;
+        if(f=="Excellent")
+        document.getElementById("result").innerHTML="Feedback rating of "+t+" is 5 / 5. Given by participant - "+p;
+        else if(f=="Very Good")
+        document.getElementById("result").innerHTML="Feedback rating of "+t+" is 4 / 5. Given by participant - "+p;
+        else if(f=="Good")
+        document.getElementById("result").innerHTML="Feedback rating of "+t+" is 3 / 5. Given by participant - "+p;
+        else if(f=="Average")
+        document.getElementById("result").innerHTML="Feedback rating of "+t+" is 2 / 5. Given by participant - "+p;
+        else
+        document.getElementById("result").innerHTML="Feedback rating of "+t+" is 1 / 5. Given by participant - "+p;
+        return false;   
+        }
+            </script>
+            <style>
+            body{
+                background-color: #FFAACC;
+            }
+            h1{
+                text-align: center;
+                color:#770080;
+                font-family: Courier New;
+                font-style: italic;
+            }
+            #result
+            {
+                font-weight: bold;
+                color:#770080;
+            }
+            </style>
+        </head>
+        <body>
+            <center>
+            <h1>College Training Feedback Form</h1>
+            <form onsubmit="return calculateFeedback()">
+            Participant Name<input type="text" placeholder="Enter your name" name="participantName" id="participantName" pattern="[a-zA-Z ]+"><br/>
+            College Name<input type="text" name="collegeName"><br/>
+            Participant Address<textarea name="participantAddress" rows="5" cols="20"></textarea><br/>
+            Gender<input type="radio" name="gender" value="Male">Male
+            <input type="radio" name="gender" value="Female">Female<br/>
+            Email ID<input type="email" name="email" > <br/>
+            Mobile Number<input type="text" name="mobileNumber" pattern="[7-9]{1}[0-9]{9}"><br/>
+            Trainer's Name<input type="text" id="trainerName" name="trainerName"><br/>
+            Course Name<input type="text" name="courseName"><br/>
+            Course Completion date<input type="date" name="dateofcompletion"><br/>
+            Trainer's Feedback<input list="feedback" name="trainerFeedback" id="trainerFeedback"><br/>
+            <datalist id="feedback" autocomplete="on">
+                <option value="Excellent"></option>
+                <option value="Very Good"></option>
+                <option value="Good"></option>
+                <option value="Average"></option>
+                <option value="Below Average"></option>
+                </datalist>
+                <input type="submit" value="Submit Feedback" name="submit">
+                <input type="reset" value="Clear">
+                <div id="result"></div>
+                </form>
+                </center>
+            </body>
+    </html>

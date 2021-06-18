@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-80"/>
+        <title>'substitute(Filename(",'Page Title'),'^.','\u&',")'</title>
+        <style type="text/css" media="all">
+            h1{
+                color:#0000FF;
+                font-family: monospace;
+                text-align:center;
+            }
+            table{
+                font-family:monospace;
+                font-weight:bold;
+            }
+            #result
+            {
+                font-weight:bold;
+                color:#0000FF;
+            }
+            td{
+                color:#0C1584;
+            }
+            body{
+                background-color:#00CED1;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form id="" actions="" method="get" accept-charset="utf-8">
+                <table>
+                    <tr>
+                        <td><h1>BOOK A SHOW - TICKET BOOKING</h1></td>
+                    </tr>
+                    <tr>
+                        <td>Name&ensp;<input type="text" name="name" placeholder="Enter the Name" pattern ="[a-zA-Z0-9 ]+" required formnovalidate="validate"></td>
+                    </tr>
+                    <tr>
+                        <td>Movie Name&ensp;<input list="movies" name="moviename" placeholder="Movie Name">
+                        <datalist id="movies" autocomplete="on">
+                            <option value="Irada"></option>
+                            <option value="Rangoon"></option>
+                            <option value="Logan"></option>
+                            <option value="First Flight" autocomplete="off"></option>
+                        </datalist></td>
+                    </tr>
+                    <tr>
+                        <td>Circle&ensp;&ensp;<input list="circles" name="circle" required>
+                        <datalist id="circles" autocomplete="on">
+                            <option value="Silver"></option>
+                            <option value="Gold"></option>
+                            <option value="Platinum" autocomplete="off"></option>
+                        </datalist></td>
+                    </tr>
+                    <tr>
+                        <td>Phone no&ensp;<input type="tel" name="phone" id="phone" placeholder="Enter Mobile Number" pattern="\d{10}$" required></td>
+                    </tr>
+                    <tr>
+                        <td>Show date and time&ensp;<input type="date" name="showdate" placeholder="dd/mm/yyyy"></td>
+                    </tr>
+                    <tr>
+                        <td>No of Adults&ensp;<input type="number" name="tickets" min="1" max="10"></td>
+                    </tr>
+                    <tr>
+                        <td>No of childrens&ensp;<input type="number" name="childrens" min="1" max="5"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name="submit" id="submit" value="Book My Show"/></td>
+                        <td><input type="reset" name="reset" id="reset" value="Reset"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div id="result"></div>
+    </body>
+</html>

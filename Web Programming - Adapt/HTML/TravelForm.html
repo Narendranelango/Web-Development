@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <body>
+        <center>
+            <h1>TRAVEL RESERVATION FORM</h1>
+            <h3>* denotes mandatory</h3>
+            <hr>
+            <table>
+                <tr>
+                    <td><input type="text" name="passengername" placeholder="Name"></td>
+                    <td><input type="tel" id="phone" name="mobile" placeholder="*Mobile Number" field=mandatory required></td>
+                </tr>  
+                <tr>
+                    <td><input type="email" id="email" name="mailId" placeholder="*Email ID" field=mandatory required></td>
+                    <td><select name="travelmonth" format="MonYYYY">
+                        <option value="Month of Travel">Month of Travel</option>
+                        <option value="Jan2018">Jan2018</option>
+                        <option value="Feb2018">Feb2018</option>
+                        <option value="Mar2018">Mar2018</option>
+                        <option value="Apr2018">Apr2018</option>
+                        <option value="May2018">May2018</option>
+                        <option value="Jun2018">Jun2018</option>
+                        <option value="Jul2018">Jul2018</option>
+                        <option value="Aug2018">Aug2018</option>
+                        <option value="Sep2018">Sep2018</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><select name="package">
+                        <option value="*Origin">*Origin</option>
+                        <option value="GOA">GOA</option>
+                        <option value="MUMBAI">MUMBAI</option>
+                        <option value="KERALA">KERALA</option>
+                        <option value="TAMILNADU">TAMILNADU</option>
+                        <option value="KOLKATA">KOLKATA</option>
+                    </select></td>
+                    <td><input type="text" name="destination" placeholder="Destination"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="submit" value="Get A Call"></td>
+                    <td><input type="reset" name="clear" value="Clear"></td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>
